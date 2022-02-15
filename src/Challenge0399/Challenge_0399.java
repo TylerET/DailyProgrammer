@@ -8,6 +8,7 @@ package Challenge0399;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Scanner;
 
 /**
@@ -48,7 +49,7 @@ public class Challenge_0399 {
     
     public static void main(String[] args) throws FileNotFoundException {
         ArrayList<String> listOfStrings = new ArrayList<String>();
-        Scanner sc = new Scanner(new FileReader("C:\\Users\\Computron\\Documents\\NetBeansProjects\\DailyProgrammer\\src\\DailyProgrammer\\challenge0399.txt"))
+        Scanner sc = new Scanner(new FileReader("C:\\Users\\Computron\\Documents\\NetBeansProjects\\DailyProgrammer\\src\\Challenge0399\\challenge0399.txt"))
                 .useDelimiter("\r\n");
         String str;
         while (sc.hasNext()){
@@ -58,6 +59,22 @@ public class Challenge_0399 {
         }
         
         String[] stringArray = listOfStrings.toArray(new String[0]);
+        HashMap<Integer, String> wordMap = new HashMap<Integer, String>();
+        
+        for(String word: stringArray){
+        wordMap.put(letterSum(word), word);
+        }
+        
+        for(int i: wordMap.keySet()){
+            System.out.println(i);}
+        for(String i: wordMap.values()){
+            System.out.println(i);}
+        
+        
+        
+        
+        
+        
 
 
 
@@ -69,18 +86,6 @@ public class Challenge_0399 {
         
         findSum(100, stringArray);
 
-                
-        
-
-        
-
-
-        
-
-        
-        
-        
-        
     }
     
     public static int letterSum(String str){
